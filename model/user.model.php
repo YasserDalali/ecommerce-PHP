@@ -35,4 +35,10 @@ function deleteUser($id) {
     $stmt = $pdo->prepare("DELETE FROM util WHERE id = ?");
     return $stmt->execute([$id]);
 }
-?>
+
+function loginUser($email, $password) {
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ? AND password = ?");
+    $stmt->execute([$email, $password]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}

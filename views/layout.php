@@ -18,8 +18,9 @@
 
 </head>
 <body>
+    <?php include "include/navbar.php"; ?>
     <h2><?= $title ?></h2>
-    <div>
+    <div class="container">
         <?= $content ?>
     </div>
     
