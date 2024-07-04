@@ -14,6 +14,6 @@ elseif ($_SESSION['util'] = 1) {
       require('admin.php');
 }
 
-?>
-
-d
+else {require("client.php");}
+include "links.html";
+include "include/navbar.php";

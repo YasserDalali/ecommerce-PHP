@@ -19,9 +19,8 @@ require "links.html";
         if(isset($_POST['btn-submit'])) {
             $mail = htmlspecialchars($_POST['email']);
             $pwd = htmlspecialchars($_POST['pwd']);
-            $name = htmlspecialchars($_POST['userName']);
 
-            if (!empty($mail) && !empty($pwd) && !empty($name)) {
+            if (!empty($mail) && !empty($pwd)) {
                 require ('backend/database.php');
                 $date = date('Y-m-d');
                  $stmt = $pdo->prepare("INSERT INTO util (id, login, pwd, date_creation) VALUES (null, :login, :pwd, :date)") ;
@@ -48,12 +47,6 @@ require "links.html";
                 <label for="exampleInputPassword1">Password</label>
                 <input type="password" class="form-control" name="pwd" placeholder="Password">
             </div>
-
-            <div class="form-group">
-                <label for="exampleInputPassword1">Name</label>
-                <input type="text" class="form-control" name="userName" placeholder="Joe Doe">
-            </div>
-
             <button type="submit" name="btn-submit" class="btn btn-primary w-100 mt-4">Submit</button>
         </form>
     </form>
