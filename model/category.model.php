@@ -1,5 +1,5 @@
 <?php 
-require_once "database.php";
+require_once "database.model.php";
 function getAllCategories($pdo)  {
     return $pdo->query("SELECT * FROM category")->fetchAll(PDO::FETCH_ASSOC);
 };
