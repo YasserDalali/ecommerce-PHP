@@ -1,7 +1,8 @@
 <?php
 ob_start();
 ?>
-    <form method="post">
+    <form method="post" action="login.php">
+        <?php if ($_GET['error']='1') {echo "<div class='alert alert-danger'>please login again</div>";} ?>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Enter email">

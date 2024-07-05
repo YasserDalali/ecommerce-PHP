@@ -16,18 +16,18 @@ function getUserByUsername($username) {
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-function createUser($username, $password, $email) {
+function createUser($username, $password) {
     global $pdo;
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    $stmt = $pdo->prepare("INSERT INTO util (username, password, email) VALUES (?, ?, ?)");
-    return $stmt->execute([$username, $hashedPassword, $email]);
+    $stmt = $pdo->prepare("INSERT INTO util (username, password) VALUES (?, ?)");
+    return $stmt->execute([$username, $hashedPassword]);
 }
 
-function updateUser($id, $username, $password, $email) {
+function updateUser($id, $username, $password) {
     global $pdo;
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    $stmt = $pdo->prepare("UPDATE util SET username = ?, password = ?, email = ? WHERE id = ?");
-    return $stmt->execute([$username, $hashedPassword, $email, $id]);
+    $stmt = $pdo->prepare("UPDATE util SET password = ?, username = ? WHERE id = ?");
+    return $stmt->execute([$username, $hashedPassword, $id]);
 }
 
 function deleteUser($id) {
@@ -38,7 +38,7 @@ function deleteUser($id) {
 
 function loginUser($email, $password) {
     global $pdo;
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ? AND password = ?");
+    $stmt = $pdo->prepare("SELECT * FROM util WHERE username = ? AND password = ?");
     $stmt->execute([$email, $password]);
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
