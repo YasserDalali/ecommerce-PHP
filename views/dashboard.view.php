@@ -1,6 +1,7 @@
 <?php
 ob_start();
 ?>
+
    <h2>Hello, <?= $id ?></h2>
 
    <table class="table table-bordered">

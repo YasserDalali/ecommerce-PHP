@@ -14,15 +14,24 @@ ob_start();
                 <input type="password" class="form-control" name="pwd" placeholder="Password">
             </div>
             <button type="submit" name="btn-submit" class="btn btn-primary w-100 mt-4">Submit</button>
+
+            <br>
+
+            <a href="index.php?action=register">First time? Create an account here!</a>
     </form>
 
     <script>
 
                 var alert = document.getElementsByClassName('alert')[0]
-                console.log(alert)
                 setTimeout(function(){
                     alert.classList.remove('animate__flipInX', 'animate__faster')
-                    alert.classList.add('animate__fadeOut')        }, 2000);
+                    alert.classList.add('animate__fadeOut')
+                    alert.style.pointerEvents = 'none'; // Add this line
+                    console.log(alert)
+
+                    }, 2000);
+                    
+
 
         
     </script>

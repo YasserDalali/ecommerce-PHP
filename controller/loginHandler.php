@@ -8,6 +8,13 @@ function showLoginPage()
     // Include the layout template
     include "views/layout.view.php";
 }
+function showRegisterPage()
+{
+    $title = "Register";
+    include "views/register.view.php";
+    // Include the layout template
+    include "views/layout.view.php";
+}
 
 function handleLogin()
 {
@@ -32,11 +39,48 @@ function handleLogin()
         showLoginPage(); // Display login form initially
     }
 }
+function handleRegister()
+{
+    if (isset($_POST['btn-submit'])) {
+        $email = htmlspecialchars($_POST['email']);
+        $password = htmlspecialchars($_POST['pwd']);
+        $password2 = htmlspecialchars($_POST['pwd2']);
 
-function logOut() {
+        try {
+            $user = getUserByUsername($email);
+            if ($password == $password2 && !empty($email)&& !empty($password)&& !empty($password2)){
+                if (!$user) {
+                    try {
+                        createUser($email = $_POST['email'], $password);
+                        $_SESSION['id'] = getUserByUsername($email)['id'];
+                        header("Location: index.php?action=dashboard");
+                        exit();
+
+                    } catch (Exception $e) {
+                        $emsg = urlencode($e->getMessage());
+                        header("Location: index.php?action=register&error=0&emsg=$emsg");
+                    }
+
+
+                } else {
+                    header("Location: index.php?action=register&error=2");
+                    showLoginPage(); // Display login form with error message
+                }}
+                else {
+                    header("Location: index.php?action=register&error=1");
+                }
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    } else {
+        showLoginPage(); // Display login form initially
+    }
+}
+
+function logOut()
+{
     $_SESSION = [];
     $_COOKIE = [];
     header("Location: index.php?action=login");
     exit();
-
 }

@@ -11,6 +11,12 @@ if (isset($_GET['action'])) {
             include 'controller/loginHandler.php';
             showLoginPage();
             break;
+
+        case "register":
+            include 'controller/loginHandler.php';
+            showRegisterPage();
+            break;
+
         case "dashboard":
             include 'controller/dashboardHandler.php';
             showDashboard();
@@ -21,6 +27,12 @@ if (isset($_GET['action'])) {
             include 'controller/loginHandler.php';
             handleLogin();
             break;
+            
+        case "registerHandle":
+
+            include 'controller/loginHandler.php';
+            handleRegister();
+            break;
 
         case "logout":
                 include 'controller/loginHandler.php';
@@ -28,6 +40,7 @@ if (isset($_GET['action'])) {
                 break;
     }
 }
+
 
 else {
     include 'controller/dashboardHandler.php';

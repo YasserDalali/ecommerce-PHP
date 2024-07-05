@@ -15,12 +15,16 @@
 
     <!-- ANIMATE.CSS: -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- SWEET ALERTS: -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 <?php include "include/navbar.php"; ?>
 
 <body>
     <main class="container">
+        <h1 class="text-center"><?= $title ?></h1>
     <div>
         <?= $content ?>
     </div>
