@@ -53,7 +53,9 @@ function handleRegister()
                     try {
                         createUser($email = $_POST['email'], $password);
                         $_SESSION['id'] = getUserByUsername($email)['id'];
-                        header("Location: index.php?action=dashboard");
+
+
+                        header("Location: index.php?action=dashboard&newacc=true");
                         exit();
 
                     } catch (Exception $e) {

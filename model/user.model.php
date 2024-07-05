@@ -52,7 +52,19 @@ function deleteUser($id) {
 
 function loginUser($email, $password) {
     global $pdo;
-    $stmt = $pdo->prepare("SELECT * FROM util WHERE username = ? AND password = ?");
-    $stmt->execute([$email, $password]);
-    return $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    // Prepare the SQL statement to fetch the user by email
+    $stmt = $pdo->prepare("SELECT * FROM util WHERE username = ?");
+    $stmt->execute([$email]);
+    
+    // Fetch the user from the database
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    // Check if user exists and verify the password
+    if ($user && password_verify($password, $user['password'])) {
+        return $user; // Password is correct, return user data
+    } else {
+        return false; // Invalid email or password
+    }
 }
+
