@@ -19,10 +19,10 @@ function handleLogin()
             if ($user) {
 
                 // Redirect to dashboard or another page upon successful login
-                header("Location: dashboard.php");
+                header("Location: index.php?action=dashboard");
                 exit();
             } else {
-                header("Location: login.php?error=1");
+                header("Location: index.php?action=login&error=1");
                 showLoginPage(); // Display login form with error message
             }
         } catch (Exception $e) {
