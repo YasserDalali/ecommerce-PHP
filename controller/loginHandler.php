@@ -17,8 +17,8 @@ function handleLogin()
         try {
             $user = loginUser($email, $password);
             if ($user) {
-
                 // Redirect to dashboard or another page upon successful login
+                $_SESSION['id'] = getUserByUsername($email)['id'];
                 header("Location: index.php?action=dashboard");
                 exit();
             } else {

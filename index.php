@@ -1,6 +1,7 @@
 <?php
 /* var_dump($_GET);
  */
+session_start();
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -11,7 +12,6 @@ if (isset($_GET['action'])) {
             showLoginPage();
             break;
         case "dashboard":
-
             include 'controller/dashboardHandler.php';
             showDashboard();
             break;
@@ -25,6 +25,6 @@ if (isset($_GET['action'])) {
 }
 
 else {
-    include 'controller/loginHandler.php';
-    showLoginPage();
+    include 'controller/dashboardHandler.php';
+    showDashboard();
 }
