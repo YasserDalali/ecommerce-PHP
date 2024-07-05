@@ -2,7 +2,7 @@
 ob_start();
 ?>
     <form method="post" action="index.php?action=loginHandle">
-        <?php if ($_GET['error']=='1') {echo "<div class='alert alert-danger'>please login again</div>";} ?>
+        <?php if ($_GET['error']=='1') {echo "<div class='alert alert-danger animate__animated animate__flipInX animate__faster fixed-top mx-5 m-2 p-3'>please login again</div>";} ?>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="Enter email">
@@ -16,4 +16,15 @@ ob_start();
             </div>
             <button type="submit" name="btn-submit" class="btn btn-primary w-100 mt-4">Submit</button>
     </form>
+
+    <script>
+
+                var alert = document.getElementsByClassName('alert')[0]
+                console.log(alert)
+                setTimeout(function(){
+                    alert.classList.remove('animate__flipInX', 'animate__faster')
+                    alert.classList.add('animate__fadeOut')        }, 2000);
+
+        
+    </script>
 <?php $content = ob_get_clean(); ?>
