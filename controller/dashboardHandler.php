@@ -25,8 +25,10 @@ function renderTable($th, $td) {
     echo "<thead>";
     $fields = [];
     for ($i = 0; $i < count($th); $i++) {
-        echo "<th>".strval($th[$i]['Field'])."</th>";
-        array_push($fields, strval($th[$i]['Field']));
+        
+        if ($th[$i]['Field'] != "password")
+        {echo "<th>".strval($th[$i]['Field'])."</th>";
+        array_push($fields, strval($th[$i]['Field']));}
     }
     echo "<th>action</th></thead><tbody>";
     foreach ($td as $tdi) {
