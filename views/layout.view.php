@@ -15,15 +15,16 @@
 
     <!-- ANIMATE.CSS: -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
 </head>
-<body class="container">
-    <?php include "include/navbar.php"; ?>
-    <h2><?= $title ?></h2>
+<?php include "include/navbar.php"; ?>
+
+<body>
+    <main class="container">
     <div>
         <?= $content ?>
     </div>
-    
+    </main>
     
 </body>
 </html>

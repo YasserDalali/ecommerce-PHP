@@ -33,3 +33,10 @@ function handleLogin()
     }
 }
 
+function logOut() {
+    $_SESSION = [];
+    $_COOKIE = [];
+    header("Location: index.php?action=login");
+    exit();
+
+}

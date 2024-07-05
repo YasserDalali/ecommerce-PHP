@@ -21,6 +21,11 @@ if (isset($_GET['action'])) {
             include 'controller/loginHandler.php';
             handleLogin();
             break;
+
+        case "logout":
+                include 'controller/loginHandler.php';
+                logOut();
+                break;
     }
 }
 
