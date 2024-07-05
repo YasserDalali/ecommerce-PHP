@@ -2,6 +2,20 @@
 
 require_once 'database.model.php';
 
+function getTableInfo() {
+    global $pdo;
+    $stmt = $pdo->prepare("SHOW COLUMNS FROM util ");
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getUsers() {
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT * FROM util");
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 function getUserById($id) {
     global $pdo;
     $stmt = $pdo->prepare("SELECT * FROM util WHERE id = ?");
