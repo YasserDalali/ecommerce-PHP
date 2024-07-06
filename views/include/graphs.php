@@ -32,12 +32,11 @@
 </article>
 
 <article>
-    <canvas id="sales" style="transform: scale(0.8)"></canvas>
+    <canvas id="sales" style="transform: scale(0.7)"></canvas>
 
 </article>
 
-<?php echo json_encode($arraySales); ?>
-<?php echo json_encode($arrayIncome); ?>
+
 
 <script>
     const ctx = document.getElementById('sales');

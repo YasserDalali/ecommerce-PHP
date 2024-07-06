@@ -43,6 +43,5 @@ if (isset($_GET['action'])) {
 
 
 else {
-    include 'controller/dashboardHandler.php?';
-    showDashboard();
+    header("location: index.php?action=dashboard");
 }
