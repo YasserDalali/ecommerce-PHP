@@ -9,7 +9,7 @@ function getUsersTableInfo() {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getUsers() {
+function getAllUsers() {
     global $pdo;
     $stmt = $pdo->prepare("SELECT * FROM util");
     $stmt->execute();
