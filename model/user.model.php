@@ -2,6 +2,35 @@
 
 require_once 'database.model.php';
 
+function getChartTraffic() {
+    global $pdo;
+    // Fetching data from the database
+$stmt = $pdo->prepare("
+SELECT 
+    MONTH(date_creation) AS month,
+    COUNT(id ) AS total_traffic 
+FROM 
+    util
+GROUP BY 
+    MONTH(date_creation)
+ORDER BY
+    MONTH(date_creation)
+");
+$stmt->execute();
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Initialize an array with 12 months set to zero
+$salesData = array_fill(0, 12, 0);
+
+// Fill the salesData array with actual sales data
+foreach ($results as $result) {
+$month = $result['month'] - 1; // Convert month to zero-based index
+$salesData[$month] = (float) $result['total_traffic'];
+}
+
+return $salesData;
+}
+
 
 function getTotalMonthlyNewClients() {
     global $pdo;

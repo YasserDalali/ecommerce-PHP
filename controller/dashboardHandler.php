@@ -34,16 +34,15 @@ function showDashboard()
 
         } elseif (isset($_GET['table']) && $_GET['table'] == 'charts') {
             $title = "Dashboard";
+            $arraySales = getChartSales();
+            $arrayIncome = getChartIncome();
+            $arrayTraffic = getChartTraffic();
             $Tsales = getTotalMonthlySales();
             $Tincome = getTotalMonthlyIncome();
             $TnewClients = getTotalMonthlyNewClients();
 
         } else {
-            $_GET['table'] = 'charts';
-            $title = "Dashboard";
-            $Tsales = getTotalMonthlySales();
-            $Tincome = getTotalMonthlyIncome();
-            $TnewClients = getTotalMonthlyNewClients();
+            header('location: index.php?action=dashboard&table=charts');
 
         }
 

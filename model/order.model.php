@@ -2,6 +2,69 @@
 
 require_once 'database.model.php';
 
+
+function getChartSales() {
+    global $pdo;
+    // Fetching data from the database
+$stmt = $pdo->prepare("
+SELECT 
+    MONTH(order_date) AS month,
+    COUNT(total_amount) AS total_sales 
+FROM 
+    orders 
+GROUP BY 
+    MONTH(order_date)
+ORDER BY
+    MONTH(order_date)
+");
+$stmt->execute();
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Initialize an array with 12 months set to zero
+$salesData = array_fill(0, 12, 0);
+
+// Fill the salesData array with actual sales data
+foreach ($results as $result) {
+$month = $result['month'] - 1; // Convert month to zero-based index
+$salesData[$month] = (float) $result['total_sales'];
+}
+
+return $salesData;
+}
+
+
+function getChartIncome() {
+    global $pdo;
+    // Fetching data from the database
+$stmt = $pdo->prepare("
+SELECT 
+    MONTH(order_date) AS month,
+    SUM(total_amount) AS total_sales 
+FROM 
+    orders 
+GROUP BY 
+    MONTH(order_date)
+ORDER BY
+    MONTH(order_date)
+");
+$stmt->execute();
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Initialize an array with 12 months set to zero
+$salesData = array_fill(0, 12, 0);
+
+// Fill the salesData array with actual sales data
+foreach ($results as $result) {
+$month = $result['month'] - 1; // Convert month to zero-based index
+$salesData[$month] = (float) $result['total_sales'];
+}
+
+return $salesData;
+}
+
+
+
+
 function getOrdersTableInfo() {
     global $pdo;
     $stmt = $pdo->prepare("SHOW COLUMNS FROM orders");
