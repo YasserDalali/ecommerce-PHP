@@ -1,4 +1,7 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px; height: 92vh;">
+
+
+
+<div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px; height: 92vh;">
   <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
     <span class="fs-4">Dashboard</span>
   </a>
@@ -45,3 +48,27 @@
     </ul>
   </div>
 </div>
+
+<script>
+  let sidebar = document.getElementById('sidebar')
+  let links = sidebar.getElementsByClassName('nav-link')
+  console.log(links)
+
+  <?php if ($_GET['table']=='charts'): ?>
+    links[0].classList.toggle('active')
+    links[0].classList.toggle('link-dark')
+
+  <?php elseif ($_GET['table']=='orders'): ?>
+    links[1].classList.toggle('active')
+    links[1].classList.toggle('link-dark')
+  <?php elseif ($_GET['table']=='products'): ?>
+    links[2].classList.toggle('active')
+    links[2].classList.toggle('link-dark')
+  <?php elseif ($_GET['table']=='customers'): ?>
+    links[3].classList.toggle('active')
+    links[3].classList.toggle('link-dark')
+
+  <?php endif ?>
+
+
+</script>

@@ -8,7 +8,7 @@ ob_start();
 <main class="container h-100">    
    
 <h1 class="text-center mt-4 animate__animated animate__fadeInUp"><?= $title ?></h1>
-   <table class="table mt-5 animate__animated animate__fadeInUp">
+   <table class="table mt-5 animate__animated animate__fadeIn">
       <?php if($_GET['table'] != 'charts'): ?>
       <?php renderTable($th, $td); ?>
    </table>
