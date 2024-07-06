@@ -2,7 +2,7 @@
 require_once "database.model.php"; // Include your database connection file
 function getProductsTableInfo() {
     global $pdo;
-    $stmt = $pdo->prepare("SHOW COLUMNS FROM product ");
+    $stmt = $pdo->prepare("SHOW COLUMNS FROM product");
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }

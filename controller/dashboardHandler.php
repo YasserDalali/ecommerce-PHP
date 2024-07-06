@@ -15,7 +15,6 @@ function showDashboard()
 
         if (isset($_GET['table']) && $_GET['table'] == 'products') {
             $title = "Products";
-
             $th = getProductsTableInfo();
             $td = getAllProducts();
 
@@ -32,15 +31,19 @@ function showDashboard()
             $th = getOrdersTableInfo();
             $td = getAllOrders();
 
+
         } elseif (isset($_GET['table']) && $_GET['table'] == 'charts') {
             $title = "Dashboard";
+            $Tsales = getTotalMonthlySales();
+            $Tincome = getTotalMonthlyIncome();
+            $TnewClients = getTotalMonthlyNewClients();
 
-            $th = getUsersTableInfo();
-            $td = getAllUsers();
         } else {
-            $title = "Products";
-            $th = getProductsTableInfo();
-            $td = getAllProducts();
+            $title = "Dashboard";
+            $Tsales = getTotalMonthlySales();
+            $Tincome = getTotalMonthlyIncome();
+            $TnewClients = getTotalMonthlyNewClients();
+
         }
 
 

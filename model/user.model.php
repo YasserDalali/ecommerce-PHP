@@ -2,6 +2,14 @@
 
 require_once 'database.model.php';
 
+
+function getTotalMonthlyNewClients() {
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT COUNT(id) FROM util WHERE MONTH(date_creation) = MONTH(CURDATE())");
+    $stmt->execute();
+    return $stmt->fetch();
+}
+
 function getUsersTableInfo() {
     global $pdo;
     $stmt = $pdo->prepare("SHOW COLUMNS FROM util ");

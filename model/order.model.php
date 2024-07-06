@@ -25,3 +25,17 @@ JOIN product p ON o.product_id = p.id;
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function getTotalMonthlySales() {
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT COUNT(total_amount) FROM orders WHERE MONTH(order_date) = MONTH(CURDATE())");
+$stmt->execute();
+return $stmt->fetch();
+}
+
+function getTotalMonthlyIncome() {
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT SUM(total_amount) FROM orders WHERE MONTH(order_date) = MONTH(CURDATE())");
+$stmt->execute();
+return $stmt->fetch();
+}
