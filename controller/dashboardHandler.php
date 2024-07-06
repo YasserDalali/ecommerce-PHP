@@ -72,9 +72,9 @@ function renderTable($th, $td)
             echo "<td>" . $tdi[strval($field)] . "</td>";
         }
         echo "<td>
-        <a href='' class='btn-danger btn'><i class='fas fa-trash-can me-1'></i>Remove</a>
-        <a href='' class='btn-success btn'><i class='fas fa-pen-to-square me-1'></i>Modify</a>
-        <a href='' class='btn-primary btn'><i class='fas fa-eye me-1'></i>View</a>
+        <a href='' class='text-danger '><i class='fas fa-x me-1'></i></a>
+        <a href='' class='text-success'><i class='fas fa-pencil me-1'></i></a>
+        <a href='' class='text-primary'><i class='fas fa-eye me-1'></i></a>
         </td>";
 
         echo "</tr>";

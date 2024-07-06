@@ -1,5 +1,5 @@
-<article class="d-flex justify-content-between gap-4 mt-5 animate__animated animate__fadeIn">
-    <div class="card w-100">
+<article class="d-flex justify-content-between gap-4 mt-5 animate__animated animate__fadeIn row">
+    <div class="card w-100  shadow-lg rounded-3">
         <div class="card-body">
             <h5 class="card-title">Total Income this month:</h5>
             <h1 class="card-text">
@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <div class="card w-100">
+    <div class="card w-100  shadow-lg rounded-3">
         <div class="card-body">
             <h5 class="card-title">Total Sales this month:</h5>
             <h1 class="card-text"><?= $Tsales['COUNT(total_amount)'] ?></h1>
@@ -23,7 +23,7 @@
 
 
 
-    <div class="card w-100">
+    <div class="card w-100 shadow-lg rounded-3">
         <div class="card-body">
             <h5 class="card-title">New clients sign-ups:</h5>
             <h1 class="card-text"><?= $TnewClients['COUNT(id)'] ?></h1>
@@ -31,8 +31,8 @@
     </div>
 </article>
 
-<article>
-    <canvas id="sales" style="transform: scale(0.7)"></canvas>
+<article class="bg-white  shadow-lg p-4 mt-5 rounded-3">
+    <canvas id="sales"></canvas>
 
 </article>
 
@@ -50,13 +50,13 @@
                 label: '# of Traffic',
                 data: <?php echo json_encode($arrayTraffic); ?>,
                 borderWidth: 3,
-                borderColor: 'blue',
+                borderColor: 'rgba(238,174,202,0.75)',
             }, {
                 type: 'line',
                 label: '# of Sales',
                 data: <?php echo json_encode($arraySales); ?>,
                 borderWidth: 3,
-                borderColor: 'green',
+                borderColor: 'rgba(148,187,233,0.75)',
             }, 
             ]
 

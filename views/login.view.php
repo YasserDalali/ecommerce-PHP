@@ -1,7 +1,8 @@
 <?php
 ob_start();
 ?><div class="container">
-    <form method="post" action="index.php?action=loginHandle">
+    <h1 class="text-primary display-1 text-center my-5 fw-bolder animate__animated animate__fadeInUp">Login</h1>
+    <form method="post" action="index.php?action=loginHandle" class="animate__animated animate__fadeInUp">
         <?php if (isset($_GET['error']) && $_GET['error']=='1' ) {echo "<div class='alert alert-danger animate__animated animate__flipInX animate__faster fixed-top mx-5 m-2 p-3'>please login again</div>";} ?>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
