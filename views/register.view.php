@@ -1,6 +1,6 @@
 <?php
 ob_start();
-?>
+?><div class="container">
     <form method="post" action="index.php?action=registerHandle">
         <?php if (isset($_GET['error']) && $_GET['error']=='0' ) {$emsg = $_GET['emsg'];echo "<div class='alert alert-danger animate__animated animate__flipInX animate__faster fixed-top mx-5 m-2 p-3'>there has been an issue on our side: $emsg</div>";} ?>
         <?php if (isset($_GET['error']) && $_GET['error']=='1' ) {echo "<div class='alert alert-danger animate__animated animate__flipInX animate__faster fixed-top mx-5 m-2 p-3'>please try again</div>";} ?>
@@ -27,9 +27,9 @@ ob_start();
 
             <br>
 
-            <a href="index.php?action=register">First time? Create an account here!</a>
+            <a href="index.php?action=login">Already have an account? login here!</a>
     </form>
-
+</div>
     <script>
 
         var alert = document.getElementsByClassName('alert')[0]

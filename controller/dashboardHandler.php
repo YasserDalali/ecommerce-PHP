@@ -1,5 +1,5 @@
 <?php
-require "model/user.model.php";
+require "model/product.model.php";
 
 function showDashboard()
 {
@@ -10,8 +10,16 @@ if (!isset($_SESSION['id'])) {
 else {
     $title = "Dashboard";
     $id = $_SESSION['id'];
-    $th = getTableInfo();
-    $td = getUsers();
+    if (isset($_GET['table']) && $_GET['table']=='product')
+    {$th = getProductsTableInfo();
+    $td = getAllProducts();}
+    elseif (isset($_GET['table']) && $_GET['table']=='user') {
+        $th = getUsersTableInfo();
+        $td = getUsers();
+    }
+    else
+    {$th = getProductsTableInfo();
+    $td = getAllProducts();}
 
     
 

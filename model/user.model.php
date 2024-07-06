@@ -2,7 +2,7 @@
 
 require_once 'database.model.php';
 
-function getTableInfo() {
+function getUsersTableInfo() {
     global $pdo;
     $stmt = $pdo->prepare("SHOW COLUMNS FROM util ");
     $stmt->execute();
