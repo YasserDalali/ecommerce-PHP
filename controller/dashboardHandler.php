@@ -1,6 +1,7 @@
 <?php
 require "model/product.model.php";
 require "model/user.model.php";
+require "model/order.model.php";
 
 
 function showDashboard()
@@ -18,12 +19,24 @@ function showDashboard()
             $th = getProductsTableInfo();
             $td = getAllProducts();
 
+            
         } elseif (isset($_GET['table']) && $_GET['table'] == 'customers') {
             $title = "Customers";
 
             $th = getUsersTableInfo();
             $td = getAllUsers();
 
+        } elseif (isset($_GET['table']) && $_GET['table'] == 'orders') {
+            $title = "Orders";
+
+            $th = getOrdersTableInfo();
+            $td = getAllOrders();
+
+        } elseif (isset($_GET['table']) && $_GET['table'] == 'charts') {
+            $title = "Dashboard";
+
+            $th = getUsersTableInfo();
+            $td = getAllUsers();
         } else {
             $title = "Products";
             $th = getProductsTableInfo();
