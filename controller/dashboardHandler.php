@@ -39,6 +39,7 @@ function showDashboard()
             $TnewClients = getTotalMonthlyNewClients();
 
         } else {
+            $_GET['table'] = 'charts';
             $title = "Dashboard";
             $Tsales = getTotalMonthlySales();
             $Tincome = getTotalMonthlyIncome();
